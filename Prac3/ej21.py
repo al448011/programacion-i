@@ -1,13 +1,16 @@
 cadena_original = input('Introduce una cadena de caracteres: ')
 
-cont_espacios = 0
+inicio = 0
 
+while inicio < len(cadena_original) and (cadena_original[inicio] == ' ' or cadena_original[inicio] == '-'):
+    inicio += 1
 
-for caracter in cadena_original:
-        if caracter == ' ' or caracter == '-':
-            cont_espacios += 1
+fin = len(cadena_original)
 
-if len(cadena_original) == cont_espacios:
-    print(cadena_original)
-else:
-    print(cadena_original[len(cadena_original) - cont_espacios])
+while fin > 0 and (cadena_original[fin - 1] == ' ' or cadena_original[fin - 1] == '-'):
+    fin -= 1
+
+cadena_limpia = cadena_original[inicio:fin]
+
+print(f'Cadena limpiada: =>{cadena_limpia}<=')
+print(f'Cadena original: =>{cadena_original}<=')
