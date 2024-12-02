@@ -11,6 +11,7 @@ def leer_lista_enteros():
 
     return lista
 
+
 def posición_menor(lista):
     posición_mínimo = 0
 
@@ -20,16 +21,17 @@ def posición_menor(lista):
 
     return posición_mínimo
 
-def intercambiar(lista, i, j):
 
-#    if lista[j] >= lista[i]:
-#        return None
+def intercambiar(lista, i, j):
+    #    if lista[j] >= lista[i]:
+    #        return None
 
     aux = lista[i]
     lista[i] = lista[j]
     lista[j] = aux
 
     return lista
+
 
 lista = leer_lista_enteros()
 posición_menor = posición_menor(lista)
