@@ -11,10 +11,11 @@ def leer_lista_enteros():
 
     return lista
 
-def posición_menor(lista):
-    posición_mínimo = 0
 
-    for i in range(len(lista)):
+def posición_menor(lista, inicio):
+    posición_mínimo = inicio
+
+    for i in range(inicio, len(lista)):
         if lista[i] < lista[posición_mínimo]:
             posición_mínimo = i
 
@@ -22,22 +23,20 @@ def posición_menor(lista):
 
 
 def intercambiar(lista, i, j):
-    #    if lista[j] >= lista[i]:
-    #        return None
-
     aux = lista[i]
     lista[i] = lista[j]
     lista[j] = aux
 
-    return lista
-
 
 def ordenar_lista(lista):
-
     for i in range(len(lista)):
-        intercambiar(lista,0,posición_menor(lista))
+        índice_menor = posición_menor(lista, i)
 
-    return lista
+        intercambiar(lista, i, índice_menor)
+
 
 lista = leer_lista_enteros()
-print(ordenar_lista(lista))
+
+print(f'Lista leída: {lista}')
+ordenar_lista(lista)
+print(f'Lista ordenada: {lista}')

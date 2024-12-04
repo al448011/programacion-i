@@ -23,22 +23,18 @@ def posición_menor(lista):
 
 
 def intercambiar(lista, i, j):
-    #    if lista[j] >= lista[i]:
-    #        return None
-
     aux = lista[i]
     lista[i] = lista[j]
     lista[j] = aux
 
-    return lista
-
 
 lista = leer_lista_enteros()
-posición_menor = posición_menor(lista)
 
 if len(lista) == 0:
     print(f'Lista leída: []')
     print(f'Modificada: []')
 else:
+    posición_menor = posición_menor(lista)
     print(f'Lista leída: {lista}')
-    print(f'Modificada: {intercambiar(lista, 0, posición_menor)}')
+    intercambiar(lista, 0, posición_menor)
+    print(f'Modificada: {lista}')
