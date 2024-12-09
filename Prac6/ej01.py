@@ -1,19 +1,19 @@
-nombre_fichero = input('Introduce el nombre de un fichero: ')
+fichero = input('Introduce el nombre de un fichero: ')
 
-fichero = open(nombre_fichero, 'r')
+with open(fichero, 'r') as fichero:
+    línea = fichero.readline()
 
-dígitos = 0
-letras = 0
+    decimales = 0
+    letras = 0
 
-línea = fichero.readline()
-while línea != '':
-    for caracter in línea:
-        if caracter.isdigit():
-            dígitos += 1
-        elif caracter.lower() in ['a-z']:
-            letras += 1
+    while línea != '':
+        for caracter in línea:
+            if 'a' <= caracter.lower() <= 'z':
+                letras += 1
+            elif caracter.isdigit():
+                decimales += 1
 
-fichero.close()
+        línea = fichero.readline()
 
-print(f'Dígitos decimales: {dígitos}')
+print(f'Dígitos decimales: {decimales}')
 print(f'Letras del inglés: {letras}')
