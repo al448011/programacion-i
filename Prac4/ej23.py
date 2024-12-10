@@ -1,23 +1,24 @@
 from modulomatrices import leerMatrizEnteros, mostrarMatriz
 
-
 def producto_diagonal_secundaria(matriz):
-
     if len(matriz) != len(matriz[0]):
-        print('Error. Se requiere una matriz cuadrada')
         return None
 
-    for i in range(len(matriz)):
-        aux = matriz[i]
-        matriz[i] = matriz[len(matriz) - 1]
-        matriz[len(matriz) - 1 - i] = aux
+    producto = 1
+    columna = len(matriz)
 
-    mostrarMatriz(matriz)
+    for fila in range(len(matriz)):
+        producto *= matriz[fila][columna - 1 - fila]
 
-    #return producto
+    return producto
+
 
 fichero = input('Introduce el nombre de un fichero: ')
 matriz = leerMatrizEnteros(fichero)
-mostrarMatriz(matriz)
-print(f'\n\n')
-producto_diagonal_secundaria(matriz)
+
+resultado = producto_diagonal_secundaria(matriz)
+
+if resultado is None:
+    print('Error. Se requiere una matriz cuadrada')
+else:
+    print(f'El producto de los elementos en la diagonal secundaria es {resultado}')
